@@ -13,9 +13,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #151747;
   text-decoration: inherit;
 }
 a:hover {
@@ -25,7 +31,6 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -36,15 +41,12 @@ h1 {
 }
 
 #app {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  padding: 0.5rem;
   will-change: filter;
   transition: filter 300ms;
 }
