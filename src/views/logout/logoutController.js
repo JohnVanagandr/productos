@@ -1,4 +1,5 @@
-import {  logout } from "../auth/auth.js";
+import { logout } from "../../auth/auth";
+
 
 const logoutController = async () => {
   // Esperamos a que se cargue el DOM
@@ -8,7 +9,7 @@ const logoutController = async () => {
   if (btn) {
     btn.addEventListener("click", () => {
       logout();
-      location.hash = "home";
+      location.hash = "#/";
     });
   } else {
     console.error("No se encontró el botón de logout");

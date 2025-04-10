@@ -1,40 +1,40 @@
-import aboutController from "../controllers/aboutController";
-import contactController from "../controllers/contactController";
-import homeController from "../controllers/homeController";
-import loginController from "../controllers/loginController";
-import logoutController from "../controllers/logoutController";
-import userController from "../controllers/userController";
+import productController from "../views/product/productController.js";
+import userController from "../views/user/userController.js";
+import logoutController from "../views/logout/logoutController.js";
+import categoryController from "../views/category/categoryController.js";
+import homeController from "../views/home/homeController.js";
+import loginController from "../views/login/loginController.js";
 
  // Constante para manejar las rutas, cargamos la vista con la función anonima loadView
 export const routes = {
   home: {
     private: false,
-    template: "home",
+    template: "home/index",
     controller: homeController,
   },
-  about: {
-    private: false,
-    template: "about",
-    controller: aboutController,
+  product: {
+    private: true,
+    template: "product/index",
+    controller: productController,
   },
-  contact: {
-    private: false,
-    template: "contact",
-    controller: contactController,
+  category: {
+    private: true,
+    template: "category/index",
+    controller: categoryController,
   },
   login: {
     private: false,
-    template: "login",
+    template: "login/index",
     controller: loginController,
   },
   logout: {
     private: true,
-    template: "logout",
+    template: "logout/index",
     controller: logoutController,
   },
   "user/:id": {
     private: true,
-    template: "user",
+    template: "user/index",
     controller: userController,
   },
 };

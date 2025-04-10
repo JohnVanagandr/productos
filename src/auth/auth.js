@@ -1,12 +1,22 @@
+
 export function isAuthenticated() {
-  // Validación ficticia: puedes adaptarla a token, localStorage, cookies, etc.
-  return localStorage.getItem("isLoggedIn") === "true";
+  return localStorage.getItem("auth") === "true";
 }
 
 export function login() {
-  localStorage.setItem("isLoggedIn", "true");
+  localStorage.setItem("auth", "true");
+  window.dispatchEvent(
+    new CustomEvent("auth-changed", {
+      detail: { loggedIn: true },
+    })
+  );
 }
 
 export function logout() {
-  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("auth");
+  window.dispatchEvent(
+    new CustomEvent("auth-changed", {
+      detail: { loggedIn: false },
+    })
+  );
 }

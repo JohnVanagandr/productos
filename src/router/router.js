@@ -10,7 +10,7 @@ export const router = async() => {
   // cuanod matchedRoute nos retona null lo enviamos al inicio
   if (!matchedRoute) {
     // Página inicial o raiz
-    await loadView("home");
+    await loadView("home/index");
     routes["home"].controller();
     return;
   }

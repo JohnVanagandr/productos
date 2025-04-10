@@ -3,11 +3,7 @@ import { renderHeader } from "./components/header/Header.js";
 import { router } from './router/router.js';
 
 const header = document.getElementById("header");
+renderHeader(header);
 
-const initApp = () => { 
-  router();
-  renderHeader(header);
-}
-
-window.addEventListener("DOMContentLoaded", initApp);
-window.addEventListener("hashchange", initApp);
+window.addEventListener("DOMContentLoaded", router);
+window.addEventListener("hashchange", router);
