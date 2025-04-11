@@ -1,5 +1,6 @@
+import { showError } from "../helpers";
 
-const BASE_URL = 'https://api.example.com';
+const BASE_URL = "http://localhost:3000/api/";
 
 /**
  * Función para obtener los headers de la petición, dependiendo de si se requiere autenticación o no
@@ -38,7 +39,7 @@ const getHeaders = (auth = false, isForm = false) => {
  * @returns // Respuesta de la API
  */
 const request = async (
-  endponit,
+  endpoint,
   method = "GET",
   data = null,
   auth = true,
@@ -48,15 +49,18 @@ const request = async (
     method,
     headers: getHeaders(auth, isForm),
   };
-  
+
   if (data) config.body = isForm ? data : JSON.stringify(data);
 
   try {
-    const response = await fetch(`${BASE_URL}${endponit}`, config);
+    const response = await fetch(`${BASE_URL}${endpoint}`, config);
     const result = await response.json();
     if (!response.ok) {
       // Emitimos un evento si el usuario no está autorizado
       if (response.status === 401) {
+        // Si no está autorizado, mostramos un mensaje de error
+        showError(result.message || "No autorizado");
+        // Emitimos un evento para manejar el logout
         document.dispatchEvent(new CustomEvent("unauthorized"));
       }
       throw new Error(result.message || "Error en la petición");

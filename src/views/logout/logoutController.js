@@ -1,4 +1,4 @@
-import { logout } from "../../auth/auth";
+import { authLogout } from "../../auth/auth";
 
 
 const logoutController = async () => {
@@ -8,7 +8,7 @@ const logoutController = async () => {
   const btn = document.querySelector("#logoutBtn");
   if (btn) {
     btn.addEventListener("click", () => {
-      logout();
+      authLogout();
       location.hash = "#/";
     });
   } else {

@@ -1,4 +1,5 @@
-import './style.css'
+import './styles/style.css';
+import "animate.css";
 import { renderHeader } from "./components/header/Header.js";
 import { router } from './router/router.js';
 

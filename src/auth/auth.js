@@ -1,19 +1,20 @@
 
 export function isAuthenticated() {
-  return localStorage.getItem("auth") === "true";
+  const token = localStorage.getItem("token");
+  // Verificar si existe
+  if (!token) return false;
+
+  // Verificar si tiene estructura de JWT (3 partes separadas por puntos)
+  const parts = token.split(".");
+  if (parts.length !== 3) return false;
+
+  // Si pasa las validaciones, decodificamos el token
+  return true
 }
 
-export function login() {
-  localStorage.setItem("auth", "true");
-  window.dispatchEvent(
-    new CustomEvent("auth-changed", {
-      detail: { loggedIn: true },
-    })
-  );
-}
-
-export function logout() {
-  localStorage.removeItem("auth");
+export const authLogout = () =>{
+  localStorage.removeItem("token");
+  localStorage.removeItem("refreshToken");
   window.dispatchEvent(
     new CustomEvent("auth-changed", {
       detail: { loggedIn: false },

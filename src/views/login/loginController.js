@@ -1,5 +1,6 @@
-import { login } from "../../auth/auth.js";
-import { tiene_valores, validar_campos } from "../../helpers";
+
+import { login } from "../../domain/auth";
+import { showSuccess, tiene_valores, validar_campos } from "../../helpers";
 
 const loginController = async () => {
   // Esperamos a que se cargue el DOM
@@ -16,7 +17,12 @@ const loginController = async () => {
     if (tiene_valores(data)) {
       // Enviamos los datos al método login y guardamos la respuesta en la variable response
       const response = await login(data);
-      console.log(response); //Todavia no esta retornado nada el login      
+      console.log(response);
+      if (response.success) {
+        showSuccess(response.message);
+        // Si la respuesta es correcta, redirigimos a la pagina de inicio
+        window.location.href = "/#";
+      }
     }    
   });
 

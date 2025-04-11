@@ -1,0 +1,47 @@
+/**
+* Componente: Botón
+* Descripción: Estilos para el botón de envío del formulario
+* Autor: [John Becerra]
+* Fecha: [04/10/2025]
+* Versión: 1.0
+* Notas:
+* - Se utiliza un diseño de botón con fondo y borde redondeado.
+* - Se aplican colores de fondo y texto utilizando variables CSS.
+* - Se establece un efecto de transición suave al pasar el mouse.
+* - Se utiliza un cursor de puntero para indicar interactividad.
+* - Se aplican estilos de texto y alineación para mejorar la legibilidad.
+* - Se define un estilo de botón primario con un color de fondo específico.
+* - Se aplican estilos de borde y relleno para un diseño atractivo.
+**/
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.1rem;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  text-decoration: none;
+  border-radius: 5px;
+  border: solid 1px var(--primary-color);
+  text-align: center;
+  font-weight: 600;
+  transition: color 0.5s;
+  transition: background-color 1s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  border: solid 1px var(--secondary-color);
+  transition: color 0.5s;
+  transition: background-color 0.8s;
+}
+
+.btn--danger {
+  background-color: var(--danger-color);
+  border: solid 1px var(--danger-color);
+}
+
+.btn--small {
+  font-weight: 300;
+  width: auto;
+  padding: 8px 10px;
+}
