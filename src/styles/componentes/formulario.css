@@ -20,7 +20,7 @@
 */
 .form {
   background-color: var(--white-color);
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 5px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   min-width: 360px;
@@ -64,6 +64,7 @@
   border: solid 1px var(--primary-color);
   outline: none;
   transition: border 0.5s;
+  font-size: 1rem;
 }
 
 .form__input--error {

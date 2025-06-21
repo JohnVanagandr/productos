@@ -53,17 +53,27 @@ const request = async (
   if (data) config.body = isForm ? data : JSON.stringify(data);
 
   try {
-    const response = await fetch(`${BASE_URL}${endpoint}`, config);
+    const response = await fetch(`${BASE_URL}${endpoint}`, config);    
     const result = await response.json();
-    if (!response.ok) {
+    if (!result.success) {   
+      if (result.code === 400) {
+        // Si la respuesta es un error 400, mostramos un mensaje de error
+        showError(result.message || "Error en la petición");
+        document.dispatchEvent(new CustomEvent("unauthorized"));
+      }
       // Emitimos un evento si el usuario no está autorizado
-      if (response.status === 401) {
+      if (response.code === 401) {
         // Si no está autorizado, mostramos un mensaje de error
         showError(result.message || "No autorizado");
         // Emitimos un evento para manejar el logout
         document.dispatchEvent(new CustomEvent("unauthorized"));
       }
-      throw new Error(result.message || "Error en la petición");
+      if (response.code === 403) {
+        // Si no tiene permisos, mostramos un mensaje de error
+        showError(result.message || "No tienes permisos");
+        document.dispatchEvent(new CustomEvent("unauthorized"));
+      }
+      // throw new Error(result.message || "Error en la petición");
     }
     return result;
   } catch (error) {
@@ -76,5 +86,5 @@ export const http = {
   get: (endpoint, auth = false) => request(endpoint, "GET", null, auth),
   post: (endpoint, data, auth = false, isForm = false) => request(endpoint, "POST", data, auth, isForm),
   put: (endpoint, data, auth = false, isForm = false) => request(endpoint, "PUT", data, auth, isForm),
-  del: (endpoint, auth = false) => request(endpoint, "DELETE", null, auth),
+  delete: (endpoint, auth = false) => request(endpoint, "DELETE", null, auth),
 };

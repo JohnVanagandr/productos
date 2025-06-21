@@ -7,4 +7,4 @@ export { son_letras } from "./son_letras.js";
 // Exportamos las funciones del modulo es_correo.js
 export { es_correo } from "./es_correo.js";
 // Exportamos las funciones para manejar las alertas
-export { showSuccess, showError } from "./alert.js";
+export { showSuccess, showError, showConfirm } from "./alert.js";

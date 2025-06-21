@@ -22,6 +22,7 @@
   border-radius: 5px;
   border: solid 1px var(--primary-color);
   text-align: center;
+  font-size: 0.8rem;
   font-weight: 600;
   transition: color 0.5s;
   transition: background-color 1s;
@@ -33,9 +34,15 @@
   border: solid 1px var(--secondary-color);
   transition: color 0.5s;
   transition: background-color 0.8s;
+  color: var(--tertiary-color);
 }
 
 .btn--danger {
+  background-color: var(--danger-color);
+  border: solid 1px var(--danger-color);
+}
+
+.btn--danger:hover {
   background-color: var(--danger-color);
   border: solid 1px var(--danger-color);
 }

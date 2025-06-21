@@ -27,6 +27,12 @@ body {
   display: flex;
 }
 
+#app {
+  height: calc(100vh - 60px);
+  width: 100%;
+  margin-top: 60px;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -35,6 +41,7 @@ h1 {
 .container {
   max-width: 1400px;
   margin: 0 auto;
+  margin-top: 18px;
   padding: 0 1rem;
 }
 
@@ -42,10 +49,57 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 60px);
   width: 100vw;
   margin: 0 auto;
   background-color: var(--tertiary-color);
   flex-direction: column;
+  gap: 1rem;
+}
+
+.secction__header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 60px;
+  background-color: var(--white-color);
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.table {
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--white-color);
+  text-align: left;
+  border-collapse: collapse;
+  border: solid 1px var(--primary-color);
+  width: 100%;
+}
+
+th, td {
+  padding: 20px;
+}
+
+thead {
+  background-color: var(--primary-color);
+  border-bottom: solid 1px var(--black-color);
+  color: var(--white-color);
+}
+
+tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+tr:hover td {
+  background-color: var(--tertiary-color);
+}
+
+.botonera {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
 }
